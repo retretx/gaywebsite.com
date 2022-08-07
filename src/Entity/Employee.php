@@ -28,6 +28,20 @@ class Employee
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatarUrl = null;
 
+    public function __construct(
+        string $name,
+        string $position,
+        ?array $socialLinks = [],
+        ?string $bio = null,
+        ?string $avatarUrl = null,
+    ){
+        $this->name = $name;
+        $this->position = $position;
+        $this->socialLinks = $socialLinks;
+        $this->bio = $bio;
+        $this->avatarUrl = $avatarUrl;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
