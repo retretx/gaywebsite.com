@@ -22,6 +22,17 @@ class Award
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logoUrl = null;
 
+    public function __construct(
+        string $name,
+        ?string $logoUrl = null,
+        ?int $year = null
+    )
+    {
+        $this->name = $name;
+        $this->logoUrl = $logoUrl;
+        $this->year = $year;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
