@@ -25,7 +25,7 @@ class Product
     /**
      * @var string|null
      */
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,nullable: true)]
     private ?string $description = null;
 
     /**
@@ -37,17 +37,16 @@ class Product
     /**
      * @var string|null
      */
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,nullable: true)]
     private ?string $dimension = null;
 
     /**
      * @var string|null
      */
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photoUrl = null;
 
     /**
-     * @param int|null $id
      * @param string|null $title
      * @param string|null $description
      * @param float|null $cost
@@ -56,15 +55,13 @@ class Product
      */
     public function __construct
     (
-        ?int    $id,
         ?string $title,
-        ?string $description,
         ?float  $cost,
-        ?string $dimension,
-        ?string $photoUrl,
+        ?string $description = null,
+        ?string $dimension = null,
+        ?string $photoUrl = null,
     )
     {
-        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->cost = $cost;
@@ -108,10 +105,10 @@ class Product
     }
 
     /**
-     * @param string $description
+     * @param string|null $description
      * @return $this
      */
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -146,10 +143,10 @@ class Product
     }
 
     /**
-     * @param string $dimension
+     * @param string|null $dimension
      * @return $this
      */
-    public function setDimension(string $dimension): self
+    public function setDimension(?string $dimension): self
     {
         $this->dimension = $dimension;
 
@@ -165,10 +162,10 @@ class Product
     }
 
     /**
-     * @param string $photoUrl
+     * @param string|null $photoUrl
      * @return $this
      */
-    public function setPhotoUrl(string $photoUrl): self
+    public function setPhotoUrl(?string $photoUrl): self
     {
         $this->photoUrl = $photoUrl;
 

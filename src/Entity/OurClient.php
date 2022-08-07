@@ -23,16 +23,13 @@ class OurClient
     private ?string $logo = null;
 
     /**
-     * @param int|null $id
      * @param string|null $logo
      */
     public function __construct
     (
-        ?int $id,
         ?string $logo,
     )
     {
-        $this->id = $id;
         $this->logo = $logo;
     }
 

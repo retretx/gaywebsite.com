@@ -23,16 +23,13 @@ class ProjectCategory
     private ?string $title = null;
 
     /**
-     * @param int|null $id
      * @param string|null $title
      */
     public function __construct
     (
-        ?int $id,
         ?string $title
     )
     {
-        $this->id = $id;
         $this->title = $title;
     }
 

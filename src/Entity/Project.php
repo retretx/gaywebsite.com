@@ -38,12 +38,6 @@ class Project
      * @var string|null
      */
     #[ORM\Column(length: 255)]
-    private ?string $credential = null;
-
-    /**
-     * @var string|null
-     */
-    #[ORM\Column(length: 255)]
     private ?string $photoUrl = null;
 
     /**
@@ -55,36 +49,30 @@ class Project
     /**
      * @var string|null
      */
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $previewVideoUrl = null;
 
     /**
-     * @param int|null $id
      * @param string|null $title
      * @param string|null $description
      * @param int|null $year
-     * @param string|null $credential
      * @param string|null $photoUrl
      * @param string|null $videoUrl
      * @param string|null $previewVideoUrl
      */
     public function __construct
     (
-        ?int $id,
         ?string $title,
         ?string $description,
         ?int $year,
-        ?string $credential,
         ?string $photoUrl,
         ?string $videoUrl,
-        ?string $previewVideoUrl
+        ?string $previewVideoUrl = null
     )
     {
-        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->year = $year;
-        $this->credential = $credential;
         $this->photoUrl = $photoUrl;
         $this->videoUrl = $videoUrl;
         $this->previewVideoUrl = $previewVideoUrl;
@@ -158,25 +146,6 @@ class Project
     /**
      * @return string|null
      */
-    public function getCredential(): ?string
-    {
-        return $this->credential;
-    }
-
-    /**
-     * @param string $credential
-     * @return $this
-     */
-    public function setCredential(string $credential): self
-    {
-        $this->credential = $credential;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getPhotoUrl(): ?string
     {
         return $this->photoUrl;
@@ -221,10 +190,10 @@ class Project
     }
 
     /**
-     * @param string $previewVideoUrl
+     * @param string|null $previewVideoUrl
      * @return $this
      */
-    public function setPreviewVideoUrl(string $previewVideoUrl): self
+    public function setPreviewVideoUrl(?string $previewVideoUrl): self
     {
         $this->previewVideoUrl = $previewVideoUrl;
 
