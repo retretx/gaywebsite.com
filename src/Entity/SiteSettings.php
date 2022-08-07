@@ -41,6 +41,26 @@ class SiteSettings
     private ?array $socialLinks = null;
 
     /**
+     * @param string|null $contactPhoneNumber
+     * @param string|null $contactEmail
+     * @param string|null $companyAddress
+     * @param array|null $socialLinks
+     */
+    public function __construct
+    (
+        ?string $contactPhoneNumber,
+        ?string $contactEmail,
+        ?string $companyAddress,
+        ?array $socialLinks
+    )
+    {
+        $this->contactPhoneNumber = $contactPhoneNumber;
+        $this->contactEmail = $contactEmail;
+        $this->companyAddress = $companyAddress;
+        $this->socialLinks = $socialLinks;
+    }
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
