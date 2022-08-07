@@ -44,7 +44,7 @@ class Product
      * @var string|null
      */
     #[ORM\Column(length: 255)]
-    private ?string $photo_url = null;
+    private ?string $photoUrl = null;
 
     /**
      * @param int|null $id
@@ -52,16 +52,16 @@ class Product
      * @param string|null $description
      * @param float|null $cost
      * @param string|null $dimension
-     * @param string|null $photo_url
+     * @param string|null $photoUrl
      */
     public function __construct
     (
-        ?int $id,
+        ?int    $id,
         ?string $title,
         ?string $description,
-        ?float $cost,
+        ?float  $cost,
         ?string $dimension,
-        ?string $photo_url,
+        ?string $photoUrl,
     )
     {
         $this->id = $id;
@@ -69,7 +69,7 @@ class Product
         $this->description = $description;
         $this->cost = $cost;
         $this->dimension = $dimension;
-        $this->photo_url = $photo_url;
+        $this->photoUrl = $photoUrl;
     }
 
     /**
@@ -161,16 +161,16 @@ class Product
      */
     public function getPhotoUrl(): ?string
     {
-        return $this->photo_url;
+        return $this->photoUrl;
     }
 
     /**
-     * @param string $photo_url
+     * @param string $photoUrl
      * @return $this
      */
-    public function setPhotoUrl(string $photo_url): self
+    public function setPhotoUrl(string $photoUrl): self
     {
-        $this->photo_url = $photo_url;
+        $this->photoUrl = $photoUrl;
 
         return $this;
     }

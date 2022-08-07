@@ -44,19 +44,19 @@ class Project
      * @var string|null
      */
     #[ORM\Column(length: 255)]
-    private ?string $photo_url = null;
+    private ?string $photoUrl = null;
 
     /**
      * @var string|null
      */
     #[ORM\Column(length: 255)]
-    private ?string $video_url = null;
+    private ?string $videoUrl = null;
 
     /**
      * @var string|null
      */
     #[ORM\Column(length: 255)]
-    private ?string $preview_video_url = null;
+    private ?string $previewVideoUrl = null;
 
     /**
      * @param int|null $id
@@ -64,9 +64,9 @@ class Project
      * @param string|null $description
      * @param int|null $year
      * @param string|null $credential
-     * @param string|null $photo_url
-     * @param string|null $video_url
-     * @param string|null $preview_video_url
+     * @param string|null $photoUrl
+     * @param string|null $videoUrl
+     * @param string|null $previewVideoUrl
      */
     public function __construct
     (
@@ -75,9 +75,9 @@ class Project
         ?string $description,
         ?int $year,
         ?string $credential,
-        ?string $photo_url,
-        ?string $video_url,
-        ?string $preview_video_url
+        ?string $photoUrl,
+        ?string $videoUrl,
+        ?string $previewVideoUrl
     )
     {
         $this->id = $id;
@@ -85,9 +85,9 @@ class Project
         $this->description = $description;
         $this->year = $year;
         $this->credential = $credential;
-        $this->photo_url = $photo_url;
-        $this->video_url = $video_url;
-        $this->preview_video_url = $preview_video_url;
+        $this->photoUrl = $photoUrl;
+        $this->videoUrl = $videoUrl;
+        $this->previewVideoUrl = $previewVideoUrl;
     }
 
     /**
@@ -179,16 +179,16 @@ class Project
      */
     public function getPhotoUrl(): ?string
     {
-        return $this->photo_url;
+        return $this->photoUrl;
     }
 
     /**
      * @param string $photo_url
      * @return $this
      */
-    public function setPhotoUrl(string $photo_url): self
+    public function setPhotoUrl(string $photoUrl): self
     {
-        $this->photo_url = $photo_url;
+        $this->photoUrl = $photoUrl;
 
         return $this;
     }
@@ -198,16 +198,16 @@ class Project
      */
     public function getVideoUrl(): ?string
     {
-        return $this->video_url;
+        return $this->videoUrl;
     }
 
     /**
-     * @param string $video_url
+     * @param string $videoUrl
      * @return $this
      */
-    public function setVideoUrl(string $video_url): self
+    public function setVideoUrl(string $videoUrl): self
     {
-        $this->video_url = $video_url;
+        $this->videoUrl = $videoUrl;
 
         return $this;
     }
@@ -217,16 +217,16 @@ class Project
      */
     public function getPreviewVideoUrl(): ?string
     {
-        return $this->preview_video_url;
+        return $this->previewVideoUrl;
     }
 
     /**
-     * @param string $preview_video_url
+     * @param string $previewVideoUrl
      * @return $this
      */
-    public function setPreviewVideoUrl(string $preview_video_url): self
+    public function setPreviewVideoUrl(string $previewVideoUrl): self
     {
-        $this->preview_video_url = $preview_video_url;
+        $this->previewVideoUrl = $previewVideoUrl;
 
         return $this;
     }
