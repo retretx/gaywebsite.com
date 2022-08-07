@@ -8,14 +8,23 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
 {
+    /**
+     * @var int|null
+     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
@@ -25,22 +34,64 @@ class Product
     #[ORM\Column]
     private ?float $cost = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 255)]
     private ?string $dimension = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(length: 255)]
     private ?string $photo_url = null;
 
+    /**
+     * @param int|null $id
+     * @param string|null $title
+     * @param string|null $description
+     * @param float|null $cost
+     * @param string|null $dimension
+     * @param string|null $photo_url
+     */
+    public function __construct
+    (
+        ?int $id,
+        ?string $title,
+        ?string $description,
+        ?float $cost,
+        ?string $dimension,
+        ?string $photo_url,
+    )
+    {
+        $this->id = $id;
+        $this->title = $title;
+        $this->description = $description;
+        $this->cost = $cost;
+        $this->dimension = $dimension;
+        $this->photo_url = $photo_url;
+    }
+
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * @param string $title
+     * @return $this
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -48,11 +99,18 @@ class Product
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
+    /**
+     * @param string $description
+     * @return $this
+     */
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -60,11 +118,18 @@ class Product
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     public function getCost(): ?float
     {
         return $this->cost;
     }
 
+    /**
+     * @param float $cost
+     * @return $this
+     */
     public function setCost(float $cost): self
     {
         $this->cost = $cost;
@@ -72,11 +137,18 @@ class Product
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getDimension(): ?string
     {
         return $this->dimension;
     }
 
+    /**
+     * @param string $dimension
+     * @return $this
+     */
     public function setDimension(string $dimension): self
     {
         $this->dimension = $dimension;
@@ -84,11 +156,18 @@ class Product
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPhotoUrl(): ?string
     {
         return $this->photo_url;
     }
 
+    /**
+     * @param string $photo_url
+     * @return $this
+     */
     public function setPhotoUrl(string $photo_url): self
     {
         $this->photo_url = $photo_url;
